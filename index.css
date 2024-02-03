@@ -1,0 +1,25 @@
+/* CSS for Skip Link: Initially positioned off-screen to be invisible, 
+   becomes visible when focused to assist keyboard and screen reader users */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #000;
+    color: white;
+    padding: 8px;
+    z-index: 100;
+}
+
+.skip-link:focus {
+    top: 0;
+    /* Makes skip link visible at the top of the page when focused */
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
