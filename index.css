@@ -1,3 +1,80 @@
+/* CSS Reset, applies global styles to address browser inconsistencies */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Primary font for all content except Headers */
+    font-family: 'Outfit', sans-serif;
+    /* Dark Charcoal - Primary text color */
+    color: hsl(24, 5%, 18%);
+    /* Eggshell - Background color */
+    background-color:
+        line-height: 1.2;
+}
+
+.parent-container {
+    display: flex;
+    flex-direction: column;
+}
+
+header img {
+    /*
+    width: Forces the image to expand to the full width of its container
+    height: Can set a specific height if needed, or use 'auto'
+    object-fit: cover --> Ensures the image covers the area, may crop the image
+    display: block --> Removes any default inline spacing
+    */
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    margin: 0;
+}
+
+header h1 {
+    font-family: "Young Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+header p {
+    color: hsl(30, 10%, 34%);
+}
+
+.prep-time-container {
+    background-color: hsl(331, 33%, 95%);
+    color: hsl(30, 10%, 34%);
+}
+
+.prep-time-container h2 {
+    font-family: "Outfit", sans-serif;
+    color: hsl(332, 51%, 32%);
+}
+
+.bold {
+    font-weight: bold;
+    color: hsl(24, 5%, 18%);
+}
+
+h2 {
+    font-family: "Young Serif", serif;
+    color: hsl(14, 45%, 36%);
+}
+
+.nutritionalValue {
+    color: hsl(14, 45%, 36%);
+    font-weight: 700;
+}
+
+/* TODO: 
+- Apply color consistently, not just in header
+- Padding / Margins 
+- Lines delineating sections
+- Apply color to bullets and numbers on OL
+
 /* CSS for Skip Link: Initially positioned off-screen to be invisible, 
    becomes visible when focused to assist keyboard and screen reader users */
 .skip-link {
