@@ -8,18 +8,66 @@
 body {
     /* Primary font for all content except Headers */
     font-family: 'Outfit', sans-serif;
+
     /* Dark Charcoal - Primary text color */
     color: hsl(24, 5%, 18%);
+
     /* Eggshell - Background color */
-    background-color:
-        line-height: 1.2;
+    background-color: hsl(30, 54%, 90%);
 }
+
+@media (min-width: 1440px) {
+    .parent-container {
+        max-width: 750px;
+        /* Whichever is larger: 1200px or 80% of the viewport width */
+        margin: 0 auto;
+        margin-top: 15vh;
+    }
+
+    header img {
+        border-radius: 50px;
+
+        width: 95%;
+        /* Reduces the image width to 90% of its container */
+        max-width: 95%;
+        /* Ensures the image does not exceed 90% of its container's width */
+        padding: 3% 3% 0 3%;
+        /* Adds padding around the image, creating a white border effect */
+        box-sizing: border-box;
+        /* Ensures padding is included in the total width and height */
+    }
+
+    .nutritionalCategory {
+        text-align: left;
+        /* Aligns the category text to the left */
+    }
+
+    .nutritionalValue {
+        text-align: center;
+        /* Keeps the nutritional values centered, you can omit this if it's already centered by default */
+    }
+}
+
 
 .parent-container {
     display: flex;
     flex-direction: column;
+    padding: 0rem 1.5rem;
+    background-color: hsl(0, 0%, 100%);
+    border-radius: 15px;
 }
 
+.parent-container img {
+    width: calc(100% + 3rem);
+    /* Stretch the image to cover the padding */
+    margin-left: -1.5rem;
+    /* Negate the padding on the left */
+    max-width: none;
+    /* Ensure the image can stretch beyond its intrinsic size */
+}
+
+
+/* Styles for the Header Section */
 header img {
     /*
     width: Forces the image to expand to the full width of its container
@@ -38,30 +86,110 @@ header h1 {
     font-family: "Young Serif", serif;
     font-weight: 400;
     font-style: normal;
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    line-height: 1em;
 }
 
 header p {
     color: hsl(30, 10%, 34%);
+    margin-bottom: 1.5rem;
 }
 
+/* Colored Box containing Preparation Times */
 .prep-time-container {
     background-color: hsl(331, 33%, 95%);
     color: hsl(30, 10%, 34%);
+    border-radius: 10px;
+    padding: 1rem 3rem 1rem 1.2rem;
+    line-height: 1.6rem;
+
+    margin-bottom: 1.5rem;
 }
 
 .prep-time-container h2 {
     font-family: "Outfit", sans-serif;
+    font-weight: 700;
+    font-size: 1.2rem;
     color: hsl(332, 51%, 32%);
+    margin-bottom: .5rem;
 }
 
-.bold {
-    font-weight: bold;
-    color: hsl(24, 5%, 18%);
+/* Recipe Ingredients Section */
+#ingredientSection {
+    line-height: 1.75rem;
+    border-bottom: 1px solid #aaa;
 }
 
-h2 {
+#ingredientSection h2 {
     font-family: "Young Serif", serif;
+    font-weight: 400;
     color: hsl(14, 45%, 36%);
+    margin-bottom: 1rem;
+}
+
+#ingredientSection ul {
+    margin-bottom: 1.5rem;
+}
+
+/* Recipe Instruction Section */
+#recipeInstructions {
+    margin-top: 1.5rem;
+    line-height: 1.4rem;
+    border-bottom: 1px solid #aaa;
+}
+
+#recipeInstructions h2 {
+    font-family: "Young Serif", serif;
+    font-weight: 400;
+    color: hsl(14, 45%, 36%);
+    margin-bottom: 1rem;
+}
+
+#recipeInstructions ol {
+    margin-bottom: 1.5rem;
+}
+
+/* Nutrition Information Section */
+#nutritionInformation {
+    margin-top: 1.5rem;
+    line-height: 1.4rem;
+    margin-bottom: 2rem;
+}
+
+#nutritionInformation h2 {
+    font-family: "Young Serif", serif;
+    font-weight: 400;
+    color: hsl(14, 45%, 36%);
+    margin-bottom: 1rem;
+}
+
+.nutritionalTable {
+    margin-top: 1rem;
+
+    width: 100%;
+    /* Ensure the table uses the full width */
+    border-collapse: collapse;
+    /* This ensures that the border spacing is collapsed into a single border (optional, for aesthetic purposes) */
+}
+
+.tableRow {
+    border-bottom: 1px solid #aaa;
+}
+
+.nutritionalCategory,
+.nutritionalValue {
+    text-align: center;
+    /* Center-align the text */
+    padding: 8px;
+    /* Add some padding for better readability */
+}
+
+ul,
+ol,
+p,
+.nutritionalCategory {
+    color: hsl(30, 10%, 34%);
 }
 
 .nutritionalValue {
@@ -69,11 +197,22 @@ h2 {
     font-weight: 700;
 }
 
-/* TODO: 
-- Apply color consistently, not just in header
-- Padding / Margins 
-- Lines delineating sections
-- Apply color to bullets and numbers on OL
+/* Footer Section */
+footer .attribution {
+    font-size: 11px;
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+footer .attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+/* Miscellaneous Styles */
+.bold {
+    font-weight: bold;
+    color: hsl(24, 5%, 18%);
+}
 
 /* CSS for Skip Link: Initially positioned off-screen to be invisible, 
    becomes visible when focused to assist keyboard and screen reader users */
@@ -92,11 +231,72 @@ h2 {
     /* Makes skip link visible at the top of the page when focused */
 }
 
-.attribution {
-    font-size: 11px;
-    text-align: center;
+/* Styles for Unordered and Ordered Lists */
+ul {
+    list-style-type: none;
+    /* Use disc for bullet points, or none if you don't want default bullets */
+
+    padding-left: 0;
+    /* Remove default padding */
 }
 
-.attribution a {
-    color: hsl(228, 45%, 44%);
+ul li {
+    position: relative;
+    /* Needed for consistent positioning */
+
+    padding-left: 40px;
+    /* Space for the bullet and additional indent, match with your ol li padding */
+}
+
+ul li:before {
+    content: "•";
+    /* You can use a custom character or image for bullets */
+
+    position: absolute;
+    /* Position the custom bullet absolutely within the li */
+
+    left: 10px;
+    /* Adjust as needed to align with the ol numbers */
+    /* Ensure the line-height and font-size match your ol li:before if you're using text content for bullets */
+
+    top: 50%;
+    /* Move the bullet to the vertical center of the li */
+
+    transform: translateY(-50%);
+    /* Center the bullet vertically */
+
+    color: hsl(14, 45%, 36%);
+}
+
+ol {
+    counter-reset: list-counter;
+    /* Initialize a counter */
+
+    list-style-type: none;
+    /* Remove default list numbering */
+
+    padding-left: 0;
+    /* Remove default padding */
+}
+
+ol li {
+    counter-increment: list-counter;
+    /* Increment the counter */
+
+    position: relative;
+    /* Needed for absolute positioning of the pseudo-element */
+
+    padding-left: 40px;
+    /* Space for the number and additional indent */
+}
+
+ol li:before {
+    content: counter(list-counter) ".";
+    /* Display the counter */
+
+    position: absolute;
+    /* Position the number absolutely within the li */
+
+    left: 0;
+    /* Align the number to the left edge of the li */
 }
